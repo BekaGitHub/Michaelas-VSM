@@ -41,8 +41,8 @@ public class VoiceRecognition extends Thread {
         this.mProject = project;
         try {
             System.out.println("Recording loaded...");
+//            this.url = getClass().getClassLoader().getResource("res/voicegrammer/voice.config.xml");
             this.url = new File("voicegrammer/voice.config.xml").toURI().toURL();
-            System.out.println("+++++++++++++++++++++ " + url);
                     //getClass().getClassLoader().getResource("res/voicegrammer/voice.config.xml");
             this.cm = new ConfigurationManager(url);
             this.recognizer = (Recognizer) cm.lookup("recognizer");
