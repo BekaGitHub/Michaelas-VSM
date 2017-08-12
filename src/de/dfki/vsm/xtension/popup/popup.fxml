@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #8AAFFA;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #8AAFFA;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="69.0" layoutY="266.0" text="Bitte füllen Sie die nebenliegende Fragebogen aus" wrapText="true" AnchorPane.bottomAnchor="287.0" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="266.0">
+      <Label fx:id="popUpText" layoutX="69.0" layoutY="266.0" prefHeight="600.0" prefWidth="900.0" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="System Bold" size="32.0" />
          </font>

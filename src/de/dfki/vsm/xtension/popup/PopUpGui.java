@@ -59,12 +59,12 @@ public class PopUpGui
         mFrame = new JFrame("FRAME");
         mFrame.add(mJFXPanel);
         // Set Not Rezizable
-        mFrame.setResizable(false);
+        mFrame.setResizable(true);
         // Set Always On Top
         mFrame.setAlwaysOnTop(false);
         // Set Undecorated
 //        mFrame.setUndecorated(true);
-
+//
         mFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Platform.runLater(() -> initFX());
@@ -72,7 +72,7 @@ public class PopUpGui
 
     protected void initFX()
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/res/de.dfki.vsm.xtension.popup/" + "popup.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/res/de/dfki/vsm/xtension/popup/" + "popup.fxml"));
         controller = new Controller();
         fxmlLoader.setController(controller);
         controller.addListener(popUpExecutor);

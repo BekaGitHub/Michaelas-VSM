@@ -9,6 +9,7 @@ import de.dfki.common.interfaces.StageRoom;
 import de.dfki.stickman3D.Stickman3D;
 import de.dfki.util.ios.IOSIndentWriter;
 import de.dfki.util.xml.XMLUtilities;
+import de.dfki.vsm.model.project.AgentConfig;
 import de.dfki.vsm.model.project.PluginConfig;
 import de.dfki.vsm.model.scenescript.ActionFeature;
 import de.dfki.vsm.runtime.activity.AbstractActivity;
@@ -52,6 +53,7 @@ public class StickmanExecutor extends ActivityExecutor implements ExportableProp
     private StickmanRepository stickmanFactory;
     public static HashMap<String, Stickman3D> stickmanContainer = new HashMap<>();
     private ExportableProperties exportableProperties = new StickmanProjectProperty();
+    private String mDeviceName;
 
     // Construct the executor
     public StickmanExecutor(final PluginConfig config, final RunTimeProject project) {
@@ -203,12 +205,8 @@ public class StickmanExecutor extends ActivityExecutor implements ExportableProp
         mLogger.message("Starting StickmanStage Client Application ...");
         stickmanStageC = stickmanFactory.createStickman();
         // Get Stickman agents configuration
-        for (String name : mProject.getAgentNames()) {
-//            AgentConfig ac = mProject.getAgentConfig(name);
-//            if (ac.getDeviceName().equalsIgnoreCase("stickman")) {
-            stickmanStageC.addStickman(name);
-//            }
-        }
+        mDeviceName = mConfig.getPluginName();
+        addStickmansToStage();
 
         stickmanLaunchThread = new Thread() {
             public void run() {
@@ -233,6 +231,15 @@ public class StickmanExecutor extends ActivityExecutor implements ExportableProp
         }
     }
 
+    private void addStickmansToStage( ){
+
+        for (String name : mProject.getAgentNames()) {
+            AgentConfig ac = mProject.getAgentConfig(name);
+            if (ac.getDeviceName().equalsIgnoreCase(mDeviceName)) {
+                stickmanStageC.addStickman(name);
+            }
+        }
+    }
     @Override
     public void unload() {
         // clear the stage
